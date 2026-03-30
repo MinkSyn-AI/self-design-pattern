@@ -1,0 +1,111 @@
+<svg width="680" height="780" viewBox="0 0 680 780" xmlns="http://www.w3.org/2000/svg" font-family="ui-sans-serif, system-ui, sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="#888780" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="tri" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+      <path d="M1 1L9 5L1 9Z" fill="none" stroke="#888780" stroke-width="1.5" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <!-- background -->
+  <rect width="680" height="780" fill="#ffffff"/>
+
+  <!-- ModuleEngine (ABC) -->
+  <rect x="190" y="30" width="300" height="90" rx="8" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="0.5"/>
+  <text x="340" y="52" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="500" fill="#2C2C2A">ModuleEngine</text>
+  <text x="340" y="68" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#5F5E5A">«ABC»</text>
+  <line x1="190" y1="78" x2="490" y2="78" stroke="#888780" stroke-width="0.5" opacity=".4"/>
+  <text x="204" y="93" dominant-baseline="central" font-size="12" fill="#5F5E5A">build(cls, *args) — classmethod abstract</text>
+  <text x="204" y="109" dominant-baseline="central" font-size="12" fill="#5F5E5A">execute(*args) — abstract</text>
+
+  <!-- BaseFactoryModule (ABC) -->
+  <rect x="150" y="180" width="380" height="110" rx="8" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.5"/>
+  <text x="340" y="202" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="500" fill="#26215C">BaseFactoryModule</text>
+  <text x="340" y="218" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#534AB7">«ABC»</text>
+  <line x1="150" y1="228" x2="530" y2="228" stroke="#534AB7" stroke-width="0.5" opacity=".4"/>
+  <text x="164" y="244" dominant-baseline="central" font-size="12" fill="#534AB7">_module_mapping — property abstract</text>
+  <text x="164" y="260" dominant-baseline="central" font-size="12" fill="#534AB7">build(cls, engine_name) — classmethod</text>
+  <text x="164" y="276" dominant-baseline="central" font-size="12" fill="#534AB7">execute(*args)</text>
+
+  <!-- inheritance: BaseFactoryModule → ModuleEngine -->
+  <line x1="340" y1="180" x2="340" y2="120" stroke="#888780" stroke-width="1" stroke-dasharray="6 3" marker-end="url(#tri)"/>
+
+  <!-- AutoGeneratorModule -->
+  <rect x="40" y="370" width="230" height="72" rx="8" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.5"/>
+  <text x="155" y="393" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="500" fill="#04342C">AutoGeneratorModule</text>
+  <line x1="40" y1="406" x2="270" y2="406" stroke="#0F6E56" stroke-width="0.5" opacity=".4"/>
+  <text x="55" y="422" dominant-baseline="central" font-size="12" fill="#0F6E56">_module_mapping → property</text>
+  <text x="55" y="436" dominant-baseline="central" font-size="12" fill="#0F6E56">Gemini, Qwen</text>
+
+  <!-- AutoVectorSearchModule -->
+  <rect x="410" y="370" width="230" height="72" rx="8" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.5"/>
+  <text x="525" y="393" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="500" fill="#04342C">AutoVectorSearchModule</text>
+  <line x1="410" y1="406" x2="640" y2="406" stroke="#0F6E56" stroke-width="0.5" opacity=".4"/>
+  <text x="424" y="422" dominant-baseline="central" font-size="12" fill="#0F6E56">_module_mapping → property</text>
+  <text x="424" y="436" dominant-baseline="central" font-size="12" fill="#0F6E56">ChromaDB, MongoDB</text>
+
+  <!-- inheritance: AutoModules → BaseFactoryModule -->
+  <path d="M155 370 L155 340 L340 340 L340 290" fill="none" stroke="#888780" stroke-width="1" stroke-dasharray="6 3" marker-end="url(#tri)"/>
+  <path d="M525 370 L525 340 L340 340" fill="none" stroke="#888780" stroke-width="1" stroke-dasharray="6 3"/>
+
+  <!-- GeminiGeneratorEngine -->
+  <rect x="40" y="520" width="150" height="60" rx="8" fill="#FAECE7" stroke="#993C1D" stroke-width="0.5"/>
+  <text x="115" y="543" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="500" fill="#4A1B0C">Gemini</text>
+  <line x1="40" y1="556" x2="190" y2="556" stroke="#993C1D" stroke-width="0.5" opacity=".4"/>
+  <text x="115" y="570" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#993C1D">GeneratorType.ONLINE</text>
+
+  <!-- QwenGeneratorEngine -->
+  <rect x="210" y="520" width="150" height="60" rx="8" fill="#FAECE7" stroke="#993C1D" stroke-width="0.5"/>
+  <text x="285" y="543" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="500" fill="#4A1B0C">Qwen</text>
+  <line x1="210" y1="556" x2="360" y2="556" stroke="#993C1D" stroke-width="0.5" opacity=".4"/>
+  <text x="285" y="570" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#993C1D">GeneratorType.OFFLINE</text>
+
+  <!-- ChromaDBVectorEngine -->
+  <rect x="390" y="520" width="120" height="60" rx="8" fill="#FAEEDA" stroke="#854F0B" stroke-width="0.5"/>
+  <text x="450" y="543" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="500" fill="#412402">ChromaDB</text>
+  <line x1="390" y1="556" x2="510" y2="556" stroke="#854F0B" stroke-width="0.5" opacity=".4"/>
+  <text x="450" y="570" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#854F0B">local store</text>
+
+  <!-- MongoDBVectorEngine -->
+  <rect x="530" y="520" width="120" height="60" rx="8" fill="#FAEEDA" stroke="#854F0B" stroke-width="0.5"/>
+  <text x="590" y="543" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="500" fill="#412402">MongoDB</text>
+  <line x1="530" y1="556" x2="650" y2="556" stroke="#854F0B" stroke-width="0.5" opacity=".4"/>
+  <text x="590" y="570" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#854F0B">remote store</text>
+
+  <!-- concretes registered in mapping -->
+  <line x1="115" y1="520" x2="115" y2="442" stroke="#888780" stroke-width="1" marker-end="url(#arrow)"/>
+  <line x1="285" y1="520" x2="200" y2="442" stroke="#888780" stroke-width="1" marker-end="url(#arrow)"/>
+  <line x1="450" y1="520" x2="490" y2="442" stroke="#888780" stroke-width="1" marker-end="url(#arrow)"/>
+  <line x1="590" y1="520" x2="560" y2="442" stroke="#888780" stroke-width="1" marker-end="url(#arrow)"/>
+
+  <!-- GeneratorEngine -->
+  <rect x="40" y="650" width="220" height="56" rx="8" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="0.5"/>
+  <text x="150" y="671" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="500" fill="#2C2C2A">GeneratorEngine</text>
+  <line x1="40" y1="683" x2="260" y2="683" stroke="#888780" stroke-width="0.5" opacity=".4"/>
+  <text x="150" y="697" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#5F5E5A">generate(*args) — abstract</text>
+
+  <!-- VectorSearchEngine -->
+  <rect x="400" y="650" width="240" height="56" rx="8" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="0.5"/>
+  <text x="520" y="671" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="500" fill="#2C2C2A">VectorSearchEngine</text>
+  <line x1="400" y1="683" x2="640" y2="683" stroke="#888780" stroke-width="0.5" opacity=".4"/>
+  <text x="520" y="697" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#5F5E5A">search / add / delete — abstract</text>
+
+  <!-- Gemini+Qwen → GeneratorEngine -->
+  <path d="M115 580 L115 620 L150 620 L150 650" fill="none" stroke="#888780" stroke-width="1" stroke-dasharray="5 3" marker-end="url(#tri)"/>
+  <path d="M285 580 L285 620 L150 620" fill="none" stroke="#888780" stroke-width="1" stroke-dasharray="5 3"/>
+
+  <!-- ChromaDB+MongoDB → VectorSearchEngine -->
+  <path d="M450 580 L450 620 L520 620 L520 650" fill="none" stroke="#888780" stroke-width="1" stroke-dasharray="5 3" marker-end="url(#tri)"/>
+  <path d="M590 580 L590 620 L520 620" fill="none" stroke="#888780" stroke-width="1" stroke-dasharray="5 3"/>
+
+  <!-- GeneratorEngine + VectorSearchEngine → ModuleEngine -->
+  <path d="M150 650 L150 740 L340 740 L340 120" fill="none" stroke="#888780" stroke-width="1" stroke-dasharray="5 3" opacity=".5" marker-end="url(#tri)"/>
+  <path d="M520 650 L520 750 L340 750" fill="none" stroke="#888780" stroke-width="1" stroke-dasharray="5 3" opacity=".5"/>
+
+  <!-- Legend -->
+  <line x1="40" y1="758" x2="72" y2="758" stroke="#888780" stroke-width="1" stroke-dasharray="5 3" marker-end="url(#tri)"/>
+  <text x="78" y="762" dominant-baseline="central" font-size="12" fill="#5F5E5A">kế thừa (extends)</text>
+  <line x1="230" y1="758" x2="262" y2="758" stroke="#888780" stroke-width="1" marker-end="url(#arrow)"/>
+  <text x="268" y="762" dominant-baseline="central" font-size="12" fill="#5F5E5A">đăng ký trong _module_mapping</text>
+</svg>
